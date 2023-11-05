@@ -1,26 +1,34 @@
+"use strict"; 
+
 const profile = {
     username: "Jacob",
     playTime: 300,
 
+
     changeUsername(newName){
-        this.username = newName;
-    },
+        for(let names in this.username){
+        if(names === "Jacob") {
+            this.username = "Jacob";
+        }else if(names !== "Jacob")
+            this.username = newName;
+    }
+        },
+
+        
 
     updatePlayTime(hours){ 
        this.playTime +=hours;
     },
 
     getInfo(){
-        console.log(`${this.username} has ${this.playTime} active hours! `);
+       return (`${this.username} has ${this.playTime} active hours! `);
     }
 };
-profile.getInfo();
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"*/
+
 profile.changeUsername("Marco");
 console.log(profile.getInfo()); // "Marco has 300 active hours!"*/
 
-profile.changeUsername("Marco");
 profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
-
-/*profile.changeUsername("Marco");
-profile.updatePlayTime(20);*/
+console.log(profile.getInfo()); // "Marco has 320 active hours!"*/
